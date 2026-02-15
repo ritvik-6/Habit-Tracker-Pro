@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker Pro</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="habit.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>
+        <span>🎯</span>
+        Habit Tracker Pro
+      </h1>
+      <div class="header-controls">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Month Navigation -->
+    <div class="month-nav">
+      <h2 id="monthYear"></h2>
+      <div class="month-nav-buttons">
+        <button class="nav-btn" id="prevMonth">
+          <span>←</span> Prev
+        </button>
+        <button class="today-btn" id="todayBtn">
+          Today
+        </button>
+        <button class="nav-btn" id="nextMonth">
+          Next <span>→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Add Habit -->
+    <div class="add-habit-section">
+      <div class="add-habit-form">
+        <input
+          type="text"
+          id="habitInput"
+          placeholder="Enter a new habit (e.g., Exercise, Read, Meditate)..."
+          maxlength="50"
+        />
+        <button id="addHabitBtn">➕ Add Habit</button>
+      </div>
+    </div>
+
+    <!-- Habits List -->
+    <div id="habitsList"></div>
+
+    <!-- Statistics -->
+    <div class="stats-dashboard" id="statsDashboard">
+      <h3>📊 Monthly Overview</h3>
+      <div class="stats-grid" id="statsGrid"></div>
+
+      <div class="chart-section">
+        <div class="chart-title">📈 Habit Completion Distribution</div>
+        <div class="chart-container">
+          <canvas id="habitChart"></canvas>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color done"></div>
+          <span>Done (Click once)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color missed"></div>
+          <span>Missed (Click twice)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color skip"></div>
+          <span>Skip (Click three times)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- External JS -->
+  <script src="habit.js"></script>
+</body>
+</html>
